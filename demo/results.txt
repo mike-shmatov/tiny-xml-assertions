@@ -1,0 +1,114 @@
+This is demo test suite for tiny/xml-assertions library.
+Following tests were run against this XML sample:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <element attr="attribute">test</element>
+</root>
+
+PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
+
+FFFFFFFF                                                            8 / 8 (100%)
+
+Time: 63 ms, Memory: 4.00MB
+
+There were 8 failures:
+
+1) Tiny\Testing\Assertions\Xml\Demo\AssertValueOnXpathTest::testInvalidXpathOnDom
+--
+Expected failure.
+Assertion:  assertValueOnXpath()
+Conditions: invalid xpath at DOMDocument provided
+--
+
+Failed asserting that DOMDocument has expected value on xpath '/root/element/missing'.
+Such xpath does not exist.
+
+
+2) Tiny\Testing\Assertions\Xml\Demo\AssertValueOnXpathTest::testValueDoesNotMatchOnDom
+--
+Expected failure.
+Assertion:  assertValueOnXpath()
+Conditions: valid xpath at DOMDocument and value mismatch
+--
+
+Failed asserting that DOMDocument has expected value on xpath '/root/element/@attr'.
+
+--- Expected scalar value
++++ Actual scalar value
+@@ @@
+-expected-value
++attribute
+
+
+3) Tiny\Testing\Assertions\Xml\Demo\AssertValueOnXpathTest::testInvalidXpathOnElement
+--
+Expected failure.
+Assertion:  assertValueOnXpath()
+Conditions: invalid xpath relatively to DOMElement provided
+--
+
+Failed asserting that DOMElement '/root/element' has expected value on xpath 'element'.
+Such xpath does not exist.
+
+
+4) Tiny\Testing\Assertions\Xml\Demo\AssertValueOnXpathTest::testValueDoesNotMatchOnElement
+--
+Expected failure.
+Assertion:  assertValueOnXpath()
+Conditions: valid xpath relatively to DOMElement having value mismatch
+--
+
+Failed asserting that DOMElement '/root/element' has expected value on xpath '@attr'.
+
+--- Expected scalar value
++++ Actual scalar value
+@@ @@
+-expected-value
++attribute
+
+
+5) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testInvalidXpathDom
+--
+Expected failure.
+Assertion:  assertXpathExists()
+Conditions: invalid xpath at DOMDocument without specifying expected count
+--
+
+Failed asserting that DOMDocument has existing xpath 'root/element/missing' at least once.
+
+
+6) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testValidXpathInvalidCountDom
+--
+Expected failure.
+Assertion:  assertXpathExists()
+Conditions: valid xpath at DOMDocument specifying invalid expected count
+--
+
+Failed asserting that DOMDocument has existing xpath '/root/element' exactly 2 time(s)
+Actually xpath found 1 time(s).
+
+
+7) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testInvalidPathElement
+--
+Expected failure.
+Assertion:  assertXpathExists()
+Conditions: invalid xpath at DOMElement without specifying expected count
+--
+
+Failed asserting that DOMElement '/root' has existing xpath 'missing' at least once.
+
+
+8) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testValidXpathInvalidCountElement
+--
+Expected failure.
+Assertion:  assertXpathExists()
+Conditions: valid xpath at DOMElement specifying invalid expected count
+--
+
+Failed asserting that DOMElement '/root' has existing xpath '//@attr' exactly 2 time(s)
+Actually xpath found 1 time(s).
+
+
+FAILURES!
+Tests: 8, Assertions: 8, Failures: 8.
