@@ -1,0 +1,29 @@
+{
+    "name": "tiny/xml-assertions",
+    "description": "Xml assertions for PHPUnit.",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Mike Shmatov",
+            "email": "shmatov@inbox.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tiny\\Testing\\Assertions\\Xml\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Tiny\\Testing\\Assertions\\Xml\\Demo\\": "demo/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "scripts": {
+        "demo": "vendor/bin/phpunit -c demo/phpunit.xml; exit 0;"
+    }
+}
