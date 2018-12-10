@@ -8,11 +8,11 @@ Following tests were run against this XML sample:
 
 PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
 
-FFFFFFFF                                                            8 / 8 (100%)
+FFFFFFFFF                                                           9 / 9 (100%)
 
-Time: 63 ms, Memory: 4.00MB
+Time: 48 ms, Memory: 4.00MB
 
-There were 8 failures:
+There were 9 failures:
 
 1) Tiny\Testing\Assertions\Xml\Demo\AssertValueOnXpathTest::testInvalidXpathOnDom
 --
@@ -68,7 +68,21 @@ Failed asserting that DOMElement '/root/element' has expected value on xpath '@a
 +attribute
 
 
-5) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testInvalidXpathDom
+5) Tiny\Testing\Assertions\Xml\Demo\AssertXmlElementChildrenTest::testInvalidChildrenOfDomElement
+--
+Expected failure.
+Assertion:  assertXmlElementChildren()
+Conditions: invalid children of DOMElement
+--
+
+Failed asserting that DOMElement '/root' has expected child elements.
+
+--- Missing elements
+@@ @@
+-missing
+
+
+6) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testInvalidXpathDom
 --
 Expected failure.
 Assertion:  assertXpathExists()
@@ -78,7 +92,7 @@ Conditions: invalid xpath at DOMDocument without specifying expected count
 Failed asserting that DOMDocument has existing xpath 'root/element/missing' at least once.
 
 
-6) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testValidXpathInvalidCountDom
+7) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testValidXpathInvalidCountDom
 --
 Expected failure.
 Assertion:  assertXpathExists()
@@ -89,7 +103,7 @@ Failed asserting that DOMDocument has existing xpath '/root/element' exactly 2 t
 Actually xpath found 1 time(s).
 
 
-7) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testInvalidPathElement
+8) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testInvalidPathElement
 --
 Expected failure.
 Assertion:  assertXpathExists()
@@ -99,7 +113,7 @@ Conditions: invalid xpath at DOMElement without specifying expected count
 Failed asserting that DOMElement '/root' has existing xpath 'missing' at least once.
 
 
-8) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testValidXpathInvalidCountElement
+9) Tiny\Testing\Assertions\Xml\Demo\AssertXpathExistsTest::testValidXpathInvalidCountElement
 --
 Expected failure.
 Assertion:  assertXpathExists()
@@ -111,4 +125,7 @@ Actually xpath found 1 time(s).
 
 
 FAILURES!
-Tests: 8, Assertions: 8, Failures: 8.
+Tests: 9, Assertions: 9, Failures: 9.
+
+GOT ONLY EXPECTED FAILURES!
+
