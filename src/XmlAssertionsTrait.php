@@ -26,4 +26,9 @@ trait XmlAssertionsTrait
         $constraint = new ValueOnXpathConstraint($xpath, $value);
         static::assertThat($domNode, $constraint, $message);
     }
+    
+    public static function assertXmlElementChildren($names, $domNode, $message = '') {
+        $constraint = new XmlElementHasChildrenConstraint($names);
+        static::assertThat($domNode, $constraint, $message);
+    }
 }
